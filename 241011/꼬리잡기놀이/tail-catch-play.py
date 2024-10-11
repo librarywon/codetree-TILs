@@ -35,7 +35,7 @@ def make_team(si,sj):
                 graph[ni][nj] = cnt
                 si, sj = ni, nj
                 break
-            elif graph[ni][nj] ==3 :
+            elif graph[ni][nj] ==3 and len(Q) > 2 :
                 Q.append([ni, nj])
                 graph[ni][nj] = cnt
                 return Q
