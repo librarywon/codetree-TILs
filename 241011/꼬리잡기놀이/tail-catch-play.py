@@ -45,10 +45,10 @@ for i in range(N):
         # 1을 찾으면 팀을 형성한다.
         if graph[i][j] == 1:
             teams.append(make_team(i,j))
-
 round_cnt = 0
 
 for round in range(k):
+
     # 팀 이동
     for team in teams:
         headi,headj = team[0]
@@ -68,7 +68,7 @@ for round in range(k):
 
             if graph[ni][nj] == -len(team):
                 team.appendleft([ni, nj])
-                taili, tailj = team.pop()
+                team.pop()
                 break
 
         new_index = -1
@@ -98,7 +98,7 @@ for round in range(k):
             for team in teams:
                 if [ni,nj] in team:
                     team.reverse()
-                    new_index -= 1
+                    new_index = -1
                     for i, j in team:
                         graph[i][j] = new_index
                         new_index -= 1
