@@ -35,7 +35,7 @@ def make_team(si,sj):
                 graph[ni][nj] = cnt
                 si, sj = ni, nj
                 break
-            elif graph[ni][nj] ==3 and len(Q) > 2 :
+            elif graph[ni][nj] ==3 and len(Q) >= 2 :
                 Q.append([ni, nj])
                 graph[ni][nj] = cnt
                 return Q
@@ -75,6 +75,9 @@ for round in range(k):
         for i, j in team:
             graph[i][j] = new_index
             new_index -= 1
+
+    if round_cnt == 4*N:
+        round_cnt = 0
 
     # 공 발사
     if round_cnt == 0:
